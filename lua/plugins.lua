@@ -28,7 +28,12 @@ return require('packer').startup({function(use)
   use { "williamboman/mason-lspconfig.nvim"}
   use { "neovim/nvim-lspconfig" }
   use { "catppuccin/nvim", as = "catppuccin" }
-
+  use { "hrsh7th/nvim-cmp" }
+  use { "hrsh7th/cmp-nvim-lsp" }
+  use { "hrsh7th/cmp-buffer" }
+  use { "hrsh7th/cmp-path" }
+  use { "L3MON4D3/LuaSnip" }
+  use { "saadparwaiz1/cmp_luasnip" }
   if packer_bootstrap then
 	  require('packer').sync()
   end
@@ -37,4 +42,5 @@ config = {
   package_root = nvim_packer_path..'pack/',
   compile_path = nvim_packer_path..'lua/packer_compiled.lua',
 }})
+
 
