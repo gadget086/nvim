@@ -27,6 +27,8 @@ require('lspconfig').pyright.setup{
 		vim.keymap.set("n","K",vim.lsp.buf.hover,{buffer=0})
 	end
 }
+require('nvim-lastplace').setup{}
+
 vim.g.mapleader = ';'
 vim.keymap.set("n","<leader>h",":echo 'hello'<CR>")
 vim.keymap.set("n","<leader>z",":source %<CR>:echo 'sourced'<CR>")
