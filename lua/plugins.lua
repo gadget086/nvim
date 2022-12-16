@@ -24,6 +24,7 @@ return require('packer').startup({function(use)
   -- Telescope
   use { "nvim-telescope/telescope.nvim" }
   use { "nvim-lua/plenary.nvim" }
+  use { "lewis6991/impatient.nvim" }
   use { "williamboman/mason.nvim"}
   use { "williamboman/mason-lspconfig.nvim"}
   use { "neovim/nvim-lspconfig" }

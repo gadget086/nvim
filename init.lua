@@ -1,4 +1,5 @@
 require('plugins')
+require('impatient')
 require('slanted-gaps')
 require('completion')
 
