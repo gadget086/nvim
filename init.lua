@@ -1,6 +1,6 @@
 require('plugins')
 require('impatient')
-require('slanted-gaps')
+require('evil_lualine')
 require('completion')
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()

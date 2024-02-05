@@ -19,6 +19,8 @@ local colors = {
   red      = '#ec5f67',
 }
 
+local mocha = require("catppuccin.palettes").get_palette "mocha"
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
@@ -80,44 +82,56 @@ end
 
 ins_left {
   function()
-    return ''
+    return ''
   end,
-  color = { fg = colors.orange }, -- Sets highlighting of component
-  padding = { left = 0, right = 1 }, -- We don't need space before this
+  color = { fg = colors.bg, bg = mocha.red }, -- Sets highlighting of component
+  padding = { left = 1, right = 1 }, -- We don't need space before this
+}
+
+ins_left {
+  function()
+    return ' '
+  end,
+  color = { fg = colors.bg, bg = colors.bg }, -- Sets highlighting of component
+  padding = { left = 0, right = 0 }, -- We don't need space before this
 }
 
 ins_left {
   -- mode component
   function()
-    return ''
+    local mode_text = {
+      n='',
+      i='I'
+      }
+    return vim.fn.mode()
   end,
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [''] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red,
+      n = mocha.maroon,
+      i = mocha.green,
+      v = mocha.blue,
+      [''] = mocha.blue,
+      V = mocha.blue,
+      c = mocha.lavender,
+      no = mocha.red,
+      s = mocha.peach,
+      S = mocha.peach,
+      [''] = mocha.peach,
+      ic = mocha.yellow,
+      R = mocha.violet,
+      Rv = mocha.violet,
+      cv = mocha.red,
+      ce = mocha.red,
+      r = mocha.teal,
+      rm = mocha.teal,
+      ['r?'] = mocha.teal,
+      ['!'] = mocha.red,
+      t = mocha.red,
     }
-    return { fg = mode_color[vim.fn.mode()] }
+    return { fg=colors.bg, bg = mode_color[vim.fn.mode()] }
   end,
-  padding = { right = 1 },
+  padding = { left=1, right = 1 },
 }
 
 ins_left {
